@@ -40,10 +40,10 @@ TEST_F(TestCsv, should_write_without_schema)
         CsvWriter<void> csv(filename);
 
         csv.writeTitle({"id", "speed"});
-        csv.writeLine(1, 1.2f);
+        csv.writeLine(1, 1.2f, 3);
     }
 
-    expectContent("id, speed\n1, 1.2\n");
+    expectContent("id, speed\n1, 1.2, 3\n");
 }
 
 TEST_F(TestCsv, should_write_with_schema)
