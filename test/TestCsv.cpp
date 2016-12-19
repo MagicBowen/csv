@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <csv/CsvWriterHelper.h>
+#include <csv/PlaceHolder.h>
 #include <sstream>
 
 USING_CSV_NS;
