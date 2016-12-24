@@ -18,23 +18,6 @@ struct CsvWriter<void>
     {
     }
 
-    CsvWriter(CsvWriter&& rhs)
-    : csv(std::move(rhs.csv))
-    {
-    }
-
-    ~CsvWriter()
-    {
-        if(csv.good()) csv.close();
-    }
-
-    CsvWriter& operator=(CsvWriter&& rhs)
-    {
-        if(this == &rhs) return *this;
-        this->csv = std::move(rhs.csv);
-        return *this;
-    }
-
     void writeTitle(const std::vector<std::string>& title)
     {
         size_t column = 0;
