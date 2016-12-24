@@ -18,6 +18,11 @@ struct CsvWriter<void>
     {
     }
 
+    void flush()
+    {
+        csv.flush();
+    }
+
     void writeTitle(const std::vector<std::string>& title)
     {
         size_t column = 0;

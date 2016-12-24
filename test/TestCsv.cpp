@@ -46,6 +46,17 @@ TEST_F(TestCsv, should_write_without_schema)
     expectContent("id, speed\n1, 1.2, 3\n");
 }
 
+TEST_F(TestCsv, should_update_file_when_flush)
+{
+    CsvWriter<void> csv(filename);
+
+    csv.writeTitle({"id", "speed"});
+    csv.writeLine(1, 1.2f, 3);
+    csv.flush();
+
+    expectContent("id, speed\n1, 1.2, 3\n");
+}
+
 TEST_F(TestCsv, should_write_with_schema)
 {
     {
