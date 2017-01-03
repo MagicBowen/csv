@@ -29,7 +29,7 @@ struct CsvWriter<void>
         for(auto label : title)
         {
             csv << label;
-            csv << (++column < title.size()? ", " : "\n");
+            csv << (++column < title.size()? "," : "\n");
         }
     }
 
@@ -43,7 +43,7 @@ private:
     template<typename T, typename ...TS>
     void output(T&& t, TS&&... ts)
     {
-        csv << std::forward<T>(t) << ", ";
+        csv << std::forward<T>(t) << ",";
         output(std::forward<TS>(ts)...);
     }
 

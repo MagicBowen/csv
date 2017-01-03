@@ -43,7 +43,7 @@ TEST_F(TestCsv, should_write_without_schema)
         csv.writeLine(1, 1.2f, 3);
     }
 
-    expectContent("id, speed\n1, 1.2, 3\n");
+    expectContent("id,speed\n1,1.2,3\n");
 }
 
 TEST_F(TestCsv, should_update_file_when_flush)
@@ -54,7 +54,7 @@ TEST_F(TestCsv, should_update_file_when_flush)
     csv.writeLine(1, 1.2f, 3);
     csv.flush();
 
-    expectContent("id, speed\n1, 1.2, 3\n");
+    expectContent("id,speed\n1,1.2,3\n");
 }
 
 TEST_F(TestCsv, should_write_with_schema)
@@ -66,7 +66,7 @@ TEST_F(TestCsv, should_write_with_schema)
         csv.writeLine(1, 1.2f);
     }
 
-    expectContent("id, speed\n1, 1.2\n");
+    expectContent("id,speed\n1,1.2\n");
 }
 
 TEST_F(TestCsv, should_write_with_placeholder)
@@ -78,7 +78,7 @@ TEST_F(TestCsv, should_write_with_placeholder)
         csv.writeLine(1, Placeholder(), 1.2f);
     }
 
-    expectContent("id,  , speed\n1,  , 1.2\n");
+    expectContent("id, ,speed\n1, ,1.2\n");
 }
 
 TEST_F(TestCsv, should_write_with_helper)
@@ -93,5 +93,5 @@ TEST_F(TestCsv, should_write_with_helper)
         csv.writeLine(1, Placeholder(), 1.2f, "vehicle info");
     }
 
-    expectContent("id,  , speed, info\n1,  , 1.2, vehicle info\n");
+    expectContent("id, ,speed,info\n1, ,1.2,vehicle info\n");
 }
